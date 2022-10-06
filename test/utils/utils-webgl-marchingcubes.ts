@@ -2,7 +2,12 @@ import * as THREE from 'three-ts-types/index';
 
 import { OrbitControls } from 'three-ts-types/examples/jsm/controls/OrbitControls';
 import { MarchingCubes } from 'three-ts-types/examples/jsm/objects/MarchingCubes';
-import { ToonShader1, ToonShader2, ToonShaderHatching, ToonShaderDotted } from 'three-ts-types/examples/jsm/shaders/ToonShader';
+import {
+    ToonShader1,
+    ToonShader2,
+    ToonShaderHatching,
+    ToonShaderDotted,
+} from 'three-ts-types/examples/jsm/shaders/ToonShader';
 
 let container: HTMLElement;
 
