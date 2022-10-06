@@ -1,6 +1,7 @@
 {
     "private": true,
     "license": "MIT",
+    "name": "three-ts-types",
     "version": "0.143.0",
     "scripts": {
         "prepare": "husky install",
