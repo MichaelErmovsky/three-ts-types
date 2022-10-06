@@ -8,7 +8,14 @@ export interface BaseEvent {
 export interface Event extends BaseEvent {
     target?: any;
     [attachment: string]: any;
+    stopQueue: () => void;
+    stopBubbling: () => void;
 }
+
+export interface EventListenerOptions {
+    priority?: number;
+}
+
 export type EventListener<E, T, U> = (event: E & { type: T } & { target: U }) => void;
 
 /**
@@ -26,8 +33,13 @@ export class EventDispatcher<E extends BaseEvent = Event> {
      * Adds a listener to an event type.
      * @param type The type of event to listen to.
      * @param listener The function that gets called when the event is fired.
+     * @param options Additional settings for event listener.
      */
-    addEventListener<T extends E['type']>(type: T, listener: EventListener<E, T, this>): void;
+    addEventListener<T extends E['type']>(
+        type: T,
+        listener: EventListener<E, T, this>,
+        options: EventListenerOptions,
+    ): void;
 
     /**
      * Checks if listener is added to an event type.
@@ -45,7 +57,7 @@ export class EventDispatcher<E extends BaseEvent = Event> {
 
     /**
      * Fire an event type.
-     * @param type The type of event that gets fired.
+     * @param event The event object that gets fired.
      */
     dispatchEvent(event: E): void;
 }
