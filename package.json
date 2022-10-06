@@ -1,6 +1,7 @@
 {
     "private": true,
     "license": "MIT",
+    "version": "0.143.0",
     "scripts": {
         "prepare": "husky install",
         "test-all": "node node_modules/@definitelytyped/dtslint-runner/dist/index.js --path .",
