@@ -5,11 +5,21 @@ export interface BaseEvent {
 /**
  * Event object.
  */
-export interface Event extends BaseEvent {
+export class Event implements BaseEvent {
+    /**
+     * Creates event object.
+     **/
+    constructor(type: string, payload: any, options?: EventOptions);
+
+    type: string;
     target?: any;
     [attachment: string]: any;
     stopQueue: () => void;
     stopBubbling: () => void;
+}
+
+export interface EventOptions {
+    bubbles?: boolean;
 }
 
 export interface EventListenerOptions {
